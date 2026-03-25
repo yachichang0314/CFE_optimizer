@@ -16,7 +16,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-from optimizer_lp_dual_v2 import (
+from optimizer import (
     StorageAsset,
     load_plant_loads,
     load_renewables,

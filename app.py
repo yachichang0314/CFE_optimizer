@@ -248,7 +248,11 @@ with tab2:
 
 with tab3:
     if run_btn:
+        loading_placeholder = st.empty()
         try:
+            with loading_placeholder.container():
+            st.image("assets/snail.gif", width=120)
+            st.caption("努力算最佳解中...")
             if mode == "weighted" and abs(weight_sum - 1.0) > 1e-9:
                 st.error("加權模式下，CFE / RE / 成本 三個權重加總必須等於 1.00。")
                 st.stop()
@@ -299,7 +303,8 @@ with tab3:
         except Exception as e:
             st.error(f"執行失敗：{e}")
             st.stop()
-
+        finally:
+            loading_placeholder.empty()
     if st.session_state["solve_result"] is not None:
         result = st.session_state["solve_result"]["result"]
 

@@ -251,8 +251,8 @@ with tab3:
         loading_placeholder = st.empty()
         try:
             with loading_placeholder.container():
-            st.image("assets/snail.gif", width=120)
-            st.caption("努力算最佳解中...")
+                st.image("assets/snail.gif", width=120)
+                st.caption("努力算最佳解中...")
             if mode == "weighted" and abs(weight_sum - 1.0) > 1e-9:
                 st.error("加權模式下，CFE / RE / 成本 三個權重加總必須等於 1.00。")
                 st.stop()
